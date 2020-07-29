@@ -1,11 +1,13 @@
 import React from "react"
 import Header from "../components/header"
+import Layout from "../components/layout"
 import { Link } from "gatsby"
 
 export default function Home() {
   return (
-    <div style={{ color: `purple`, fontSize: `46px` }}>
-      <Header tommyText="This is my Index Header" />
+    <div>
+      <Header />
+      <Layout />
       <h1>Wassup Dog!</h1>
       <Link to="/about/">About</Link>
       <br />

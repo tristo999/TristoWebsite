@@ -1,5 +1,5 @@
 import React from "react"
 
 export default function Header(props) {
-  return <h1>{props.tommyText}</h1>
+  return <h1>This is the header</h1>
 }
