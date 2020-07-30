@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 const Main = styled.main`
-  color: white;
+  height: 100vh;
+  text-align: center;
 `
 
 export default Main
