@@ -1,11 +1,22 @@
 import React from "react"
 import { Layout } from "../components"
-import Main from "../styles/main"
+import {
+  Intro,
+  AboutMe,
+  WorkExperience,
+  Projects,
+} from "../components/sections"
+import { Main } from "../styles"
+import { Link } from "gatsby"
 
 export default function Home() {
   return (
-    <div>
+    <Main>
       <Layout />
-    </div>
+      <Intro />
+      <AboutMe />
+      <WorkExperience />
+      <Projects />
+    </Main>
   )
 }

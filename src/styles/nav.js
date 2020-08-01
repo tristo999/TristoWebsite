@@ -5,8 +5,11 @@ const Header = styled.header`
   z-index: 1;
   position: fixed;
   width: 100vw;
-  height: 5vh;
+  height: 8vh;
   top: 0;
+  text-align: center;
+  border-bottom: outset;
+  background-color: #1a1a1d;
 `
 
 export default Header

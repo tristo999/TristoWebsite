@@ -1,10 +1,10 @@
 import React from "react"
-import HeaderStyle from "../styles/header"
+import { Header } from "../styles"
 
-export default function Header(props) {
+export default function Head(props) {
   return (
-    <HeaderStyle>
-      <h1>This is the not the header</h1>
-    </HeaderStyle>
+    <Header>
+      <br />
+    </Header>
   )
 }
