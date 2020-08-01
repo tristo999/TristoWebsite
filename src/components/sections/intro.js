@@ -5,6 +5,7 @@ const StyledContainer = styled.div`
   color: red;
   min-height: 100vh;
   padding-top: 15vh;
+  float: top;
 `
 
 export default function intro() {

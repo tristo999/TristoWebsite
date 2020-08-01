@@ -1,13 +1,14 @@
 import React from "react"
-import { Header, Nav } from "../components"
-import { GlobalStyle, Main } from "../styles"
+import { Header, Nav } from "@components"
+import { GlobalStyle, Main } from "@styles"
 
-export default function Layout() {
+export default function Layout(props) {
   return (
-    <div>
+    <Main>
       <GlobalStyle />
       <Nav />
       <Header />
-    </div>
+      {props.children}
+    </Main>
   )
 }

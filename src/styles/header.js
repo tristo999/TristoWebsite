@@ -5,6 +5,7 @@ const Header = styled.header`
   height: 8vh;
   width: 100vw;
   position: fixed;
+  top: 0;
 `
 
 export default Header
