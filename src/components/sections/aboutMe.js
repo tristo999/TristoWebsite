@@ -4,7 +4,7 @@ import styled from "styled-components"
 const StyledContainer = styled.div`
   color: red;
   min-height: 100vh;
-  padding-top: 15vh;
+  margin: auto;
 `
 
 export default function aboutMe() {

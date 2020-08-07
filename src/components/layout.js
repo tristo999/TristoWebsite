@@ -1,14 +1,18 @@
-import React from "react"
+import React, { Component } from "react"
 import { Header, Nav } from "@components"
 import { GlobalStyle, Main } from "@styles"
 
-export default function Layout(props) {
-  return (
-    <Main>
-      <GlobalStyle />
-      <Nav />
-      <Header />
-      {props.children}
-    </Main>
-  )
+class Layout extends Component {
+  render() {
+    return (
+      <Main>
+        <GlobalStyle />
+        <Nav />
+        <Header />
+        {this.props.children}
+      </Main>
+    )
+  }
 }
+
+export default Layout
