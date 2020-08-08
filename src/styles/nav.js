@@ -4,8 +4,8 @@ const Nav = styled.header`
   color: white;
   z-index: 1;
   position: fixed;
-  width: 100vw;
-  height: 8vh;
+  height: 70px;
+  width: 100%;
   top: 0;
   text-align: center;
   background-color: #1a1a1d;

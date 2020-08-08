@@ -7,6 +7,8 @@ body {
     color: #66FCF1;
     text-align: center;
     margin: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 `

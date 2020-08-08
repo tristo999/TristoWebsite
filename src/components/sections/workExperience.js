@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Section } from "@styles"
 
 const StyledContainer = styled.div`
   color: red;
@@ -9,8 +10,10 @@ const StyledContainer = styled.div`
 
 export default function workExperience() {
   return (
-    <StyledContainer>
-      <h1>Work Experience</h1>
-    </StyledContainer>
+    <Section>
+      <StyledContainer>
+        <h1>Work Experience</h1>
+      </StyledContainer>
+    </Section>
   )
 }

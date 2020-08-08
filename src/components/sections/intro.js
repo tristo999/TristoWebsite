@@ -4,9 +4,6 @@ import { Section } from "@styles"
 
 const StyledContainer = styled.div`
   color: red;
-  padding-top: 15vh;
-  float: top;
-  margin: auto;
 `
 
 export default function intro() {

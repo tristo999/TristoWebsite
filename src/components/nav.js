@@ -1,6 +1,31 @@
 import React, { Component } from "react"
 import { Nav } from "@styles"
+import styled from "styled-components"
 import anime from "animejs"
+
+const StyledContainer = styled.div`
+  height: 100%
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  
+`
+
+const StyledLogo = styled.div`
+  float: left;
+  text-align: center;
+  height: 70px;
+  display: flex;
+  align-items: center;
+`
+
+const StyledLink = styled.div`
+  height: 70px;
+  float: right;
+  text-align: center;
+  display: flex;
+  align-items: center;
+`
 
 class NavBar extends Component {
   constructor() {
@@ -13,7 +38,8 @@ class NavBar extends Component {
     anime({
       targets: document.getElementsByClassName("NavBar"),
       translateY: -100,
-      duration: 1000,
+      duration: 500,
+      easing: "easeInOutQuart",
     })
   }
 
@@ -22,7 +48,8 @@ class NavBar extends Component {
     anime({
       targets: document.getElementsByClassName("NavBar"),
       translateY: 0,
-      duration: 1000,
+      duration: 500,
+      easing: "easeInOutQuart",
     })
   }
 
@@ -55,7 +82,10 @@ class NavBar extends Component {
   render() {
     return (
       <Nav className="NavBar">
-        <h1>This is the header</h1>
+        <StyledContainer>
+          <StyledLogo>Logo</StyledLogo>
+          <StyledLink>Link</StyledLink>
+        </StyledContainer>
       </Nav>
     )
   }
