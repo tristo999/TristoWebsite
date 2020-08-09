@@ -4,7 +4,6 @@ import { Section } from "@styles"
 
 const StyledContainer = styled.div`
   color: red;
-  margin: auto;
 `
 
 export default function aboutMe() {

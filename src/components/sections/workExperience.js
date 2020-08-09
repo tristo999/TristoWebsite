@@ -4,7 +4,6 @@ import { Section } from "@styles"
 
 const StyledContainer = styled.div`
   color: red;
-  min-height: 100vh;
   padding-top: 15vh;
 `
 
