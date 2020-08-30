@@ -2,16 +2,22 @@ import React, { Component } from "react"
 import { Nav } from "@styles"
 import styled from "styled-components"
 import anime from "animejs"
+import logo from "../../static/tempLogo.png"
+import { Link } from "react-scroll"
 
-const StyledContainer = styled.div`
-  height: 100%
-  width: 90%;
-  padding-left: 5%;
-  padding-right: 5%;
-  
+const StyledLogoImg = styled.img`
+  width: 50px;
+  cursor: pointer;
 `
 
-const StyledLogo = styled.div`
+const StyledContainer = styled.div`
+  height: 100%;
+  width: 92.5%;
+  padding-left: 5%;
+  padding-right: 2.5%;
+`
+
+const StyledLogo = styled.a`
   float: left;
   text-align: center;
   height: 70px;
@@ -19,8 +25,22 @@ const StyledLogo = styled.div`
   align-items: center;
 `
 
-const StyledLink = styled.div`
-  height: 70px;
+const StyledLink = styled.p`
+  justify-content: center;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  color: green;
+  cursor: pointer;
+  text-decoration: underline;
+
+  :hover {
+    color: blue;
+  }
+`
+
+const StyledLinkList = styled.div`
+  height 100%;
   float: right;
   text-align: center;
   display: flex;
@@ -83,8 +103,33 @@ class NavBar extends Component {
     return (
       <Nav className="NavBar">
         <StyledContainer>
-          <StyledLogo>Logo</StyledLogo>
-          <StyledLink>Link</StyledLink>
+          <StyledLogo>
+            <Link to="about" smooth={true} duration={10}>
+              <StyledLogoImg src={logo} />
+            </Link>
+          </StyledLogo>
+          <StyledLinkList>
+            <StyledLink>
+              <Link to="about" smooth={true} duration={10}>
+                About
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link to="work" smooth={true} duration={10}>
+                Work
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link to="projects" smooth={true} duration={10}>
+                Projects
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link to="contact" smooth={true} duration={10}>
+                Contact
+              </Link>
+            </StyledLink>
+          </StyledLinkList>
         </StyledContainer>
       </Nav>
     )

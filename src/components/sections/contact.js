@@ -13,16 +13,13 @@ const StyledContainer = styled.div`
   }
 `
 
-export default function intro() {
+export default function contact() {
   return (
-    <div className="intro">
+    <div className="contact">
       <Zoom>
         <Section>
           <StyledContainer>
-            <h1>
-              Tristan <br />
-              Fitzwater
-            </h1>
+            <h1>Contact Me</h1>
           </StyledContainer>
         </Section>
       </Zoom>

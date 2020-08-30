@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Nav = styled.header`
   color: white;
-  z-index: 1;
+  z-index: 100;
   position: fixed;
   height: 70px;
   width: 100%;

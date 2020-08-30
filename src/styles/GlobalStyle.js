@@ -2,13 +2,15 @@ import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #1A1A1D;
-    color: #66FCF1;
+    color: #C3073F;
     text-align: center;
     margin: 0px;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 `
