@@ -1,19 +1,37 @@
 import React, { Component } from "react"
-import { Nav } from "@styles"
+import { Theme, Nav } from "@styles"
 import styled from "styled-components"
 import anime from "animejs"
-import logo from "../../static/tempLogo.png"
 import { Link } from "react-scroll"
 
-const StyledLogoImg = styled.img`
+const StyledLogoImg = styled.h2`
+  line-height: 62px;
+  padding-top: px;
+  padding-left: 1.5px;
   width: 50px;
+  height: 50px;
   cursor: pointer;
+  font-family: Geek;
+  font-size: 50px;
+  color: #66fcf1;
+  border-radius: 30px;
+  background: #1f2833;
+  text-decoration: none;
+  margin: auto;
+  text-align: center;
+  transition: 0.5s;
+  font-weight: 10;
+  font-family: Geek;
+  :hover {
+    background: #45a29e;
+    transition: 0.5s;
+  }
 `
 
 const StyledContainer = styled.div`
-  height: 100%;
+  height: 100%; mmnbg
   width: 92.5%;
-  padding-left: 5%;
+  padding-left: 2.5%;
   padding-right: 2.5%;
 `
 
@@ -23,19 +41,20 @@ const StyledLogo = styled.a`
   height: 70px;
   display: flex;
   align-items: center;
+  text-decoration: none;
 `
 
 const StyledLink = styled.p`
   justify-content: center;
-  width: 100px;
   display: flex;
   align-items: center;
-  color: green;
+  padding-left: 40px;
   cursor: pointer;
-  text-decoration: underline;
-
+  transition: 0.5s;
   :hover {
-    color: blue;
+    color: ${Theme.colors.LINK_COLOR};
+    transition: 0.5s;
+    text-decoration: underline;
   }
 `
 
@@ -103,10 +122,8 @@ class NavBar extends Component {
     return (
       <Nav className="NavBar">
         <StyledContainer>
-          <StyledLogo>
-            <Link to="about" smooth={true} duration={10}>
-              <StyledLogoImg src={logo} />
-            </Link>
+          <StyledLogo href="http://localhost:8000/">
+            <StyledLogoImg>T</StyledLogoImg>
           </StyledLogo>
           <StyledLinkList>
             <StyledLink>
@@ -127,6 +144,11 @@ class NavBar extends Component {
             <StyledLink>
               <Link to="contact" smooth={true} duration={10}>
                 Contact
+              </Link>
+            </StyledLink>
+            <StyledLink>
+              <Link to="blargh" smooth={true} duration={10}>
+                Resume
               </Link>
             </StyledLink>
           </StyledLinkList>

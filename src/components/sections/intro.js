@@ -1,31 +1,33 @@
 import React from "react"
 import styled from "styled-components"
-import { Section, Fonts } from "@styles"
-import { Zoom } from "react-reveal"
+import { Section, Fonts, Theme } from "@styles"
 
 const StyledContainer = styled.div`
-  width: 100%;
   text-align: left;
-  padding: 250px 0px;
-
+  height: 100px;
+  padding-top: 30vh;
   h1 {
     font-size: 100px;
   }
 `
 
+const Name = styled.h1`
+  margin: 0;
+`
+
+const Lower = styled.p`
+  color: ${Theme.colors.LINK_COLOR};
+`
+
 export default function intro() {
   return (
     <div className="intro">
-      <Zoom>
-        <Section>
-          <StyledContainer>
-            <h1>
-              Tristan <br />
-              Fitzwater
-            </h1>
-          </StyledContainer>
-        </Section>
-      </Zoom>
+      <Section>
+        <StyledContainer>
+          <Name>Tristan Fitzwater</Name>
+          <Lower>I suck at websites :(</Lower>
+        </StyledContainer>
+      </Section>
     </div>
   )
 }
