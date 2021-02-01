@@ -8,6 +8,9 @@ const path = require("path")
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Personal Website for Tristan Fitzwater`,
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-alias-imports`,
@@ -19,6 +22,12 @@ module.exports = {
           "@sections": "src/components/sections",
         },
         extensions: ["js"],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `static/Logo.png`,
       },
     },
   ],

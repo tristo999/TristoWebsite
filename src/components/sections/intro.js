@@ -17,6 +17,7 @@ const Name = styled.h1`
 
 const Lower = styled.p`
   color: ${Theme.colors.LINK_COLOR};
+  padding-left: 8px;
 `
 
 export default function intro() {
