@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Section, Fonts } from "@styles"
+import { Section } from "@styles"
 import { Zoom } from "react-reveal"
 
 const StyledContainer = styled.div`

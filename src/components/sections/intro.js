@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { Section, Fonts, Theme } from "@styles"
+import { Section, Theme } from "@styles"
+import Typing from "react-typing-animation"
 
 const StyledContainer = styled.div`
   text-align: left;
@@ -25,8 +26,12 @@ export default function intro() {
     <div className="intro">
       <Section>
         <StyledContainer>
-          <Name>Tristan Fitzwater</Name>
-          <Lower>I suck at websites :(</Lower>
+          <Typing>
+            <Typing.Delay ms={1000} />
+            <Name>Tristan Fitzwater</Name>
+            <Typing.Delay ms={1000} />
+            <Lower>I suck at websites :(</Lower>
+          </Typing>
         </StyledContainer>
       </Section>
     </div>
