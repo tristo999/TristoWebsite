@@ -1,16 +1,25 @@
-import React, { Component } from "react"
+import React, { Component, useState, useEffect } from "react"
 import { Header, Nav, Loading } from "@components"
 import { GlobalStyle, Main } from "@styles"
 
-const isLoading = true
-
 class Layout extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoading: true,
+    }
+  }
+
   render() {
     return (
       <div>
         <GlobalStyle />
-        {isLoading ? (
-          <Loading />
+        {this.state.isLoading ? (
+          <div>
+            <Loading
+              finishLoading={() => this.setState({ isLoading: false })}
+            />
+          </div>
         ) : (
           <Main>
             <Nav />
