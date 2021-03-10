@@ -30,7 +30,7 @@ export default function intro() {
             <Typing.Delay ms={1000} />
             <Name>Tristan Fitzwater</Name>
             <Typing.Delay ms={1000} />
-            <Lower>I suck at websites :(</Lower>
+            <Lower>Software Engineer</Lower>
           </Typing>
         </StyledContainer>
       </Section>

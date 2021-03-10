@@ -6,10 +6,12 @@ const Index = () => {
   return (
     <Layout>
       <Intro />
+      {/* 
       <AboutMe />
       <WorkExperience />
       <Projects />
       <Contact />
+      */}
     </Layout>
   )
 }

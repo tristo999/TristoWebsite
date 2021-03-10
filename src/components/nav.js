@@ -126,6 +126,7 @@ class NavBar extends Component {
             <StyledLogoImg>T</StyledLogoImg>
           </StyledLogo>
           <StyledLinkList>
+            {/*
             <StyledLink>
               <Link to="about" smooth={true} duration={10}>
                 About
@@ -146,6 +147,7 @@ class NavBar extends Component {
                 Contact
               </Link>
             </StyledLink>
+            */}
             <StyledLink>
               <Link to="blargh" smooth={true} duration={10}>
                 Resume
