@@ -1,0 +1,64 @@
+.list {
+  display: grid;
+  gap: var(--space-xl);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.role {
+  display: grid;
+  gap: var(--space-2xs);
+  grid-template-columns: 1fr;
+}
+
+/* On wide screens the dates sit in a fixed left rail so every entry aligns. */
+@media (min-width: 48rem) {
+  .role {
+    grid-template-columns: 11rem 1fr;
+    gap: var(--space-m);
+  }
+}
+
+.dates {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-faint);
+  line-height: 1.9;
+}
+
+.body > * + * {
+  margin-top: var(--space-2xs);
+}
+
+.title {
+  font-size: var(--step-1);
+}
+
+.company {
+  color: var(--accent-dim);
+}
+
+.summary {
+  color: var(--text-muted);
+  max-width: var(--measure);
+}
+
+.highlights {
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--text-muted);
+  max-width: var(--measure);
+}
+
+.highlights li::marker {
+  color: var(--accent-dim);
+}
+
+.highlights li + li {
+  margin-top: var(--space-3xs);
+}
+
+.tags {
+  padding-top: var(--space-2xs);
+}

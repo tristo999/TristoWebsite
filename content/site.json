@@ -1,0 +1,14 @@
+{
+  "name": "Tristan Fitzwater",
+  "role": "Software Engineer",
+  "tagline": "TODO: one sentence, plain language, what you build and who it's for.",
+  "email": "tristanfitzwater@gmail.com",
+  "location": "TODO: City, State",
+  "resume": null,
+  "socials": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/tristo999"
+    }
+  ]
+}

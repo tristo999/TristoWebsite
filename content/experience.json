@@ -1,0 +1,15 @@
+[
+  {
+    "company": "TODO: Company",
+    "role": "TODO: Title",
+    "start": "2023-01",
+    "end": null,
+    "location": "TODO: City, State",
+    "summary": "TODO: one or two sentences on scope — what the team owned, what you were responsible for.",
+    "highlights": [
+      "TODO: something you shipped, and what changed because of it.",
+      "TODO: prefer concrete outcomes over responsibilities."
+    ],
+    "tech": ["TODO"]
+  }
+]

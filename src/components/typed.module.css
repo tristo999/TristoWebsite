@@ -1,0 +1,125 @@
+.line {
+  /* Spaces between the split characters must survive. */
+  white-space: pre-wrap;
+}
+
+.char {
+  display: inline-block;
+  /* Anchor for the travelling caret. */
+  position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* 1ms + steps() so each character snaps in rather than fading — a fade at
+     typing speed reads as a smear, not as typing. */
+  .char {
+    animation: char-in 1ms steps(1, end) backwards;
+    animation-delay: calc(var(--start) + var(--i) * var(--speed));
+  }
+
+  /*
+   * The caret rides the typing position: every character owns the caret for
+   * exactly its own interval, so it advances in step with the text.
+   *
+   * Absolutely positioned on purpose — an inline caret would add width to each
+   * character box and shove the rest of the line sideways as it travelled.
+   */
+  .char::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 0.1em;
+    width: 0.06em;
+    height: 0.82em;
+    background: var(--accent);
+    opacity: 0;
+    animation: caret-step var(--speed) linear forwards;
+    animation-delay: calc(var(--start) + var(--i) * var(--speed));
+  }
+
+  /* On the last character the caret rests through the beat before the next
+     line begins, rather than blinking out the instant the line finishes. */
+  .char:last-of-type::after {
+    animation-duration: calc(var(--speed) + var(--gap));
+  }
+
+  /* Except on the final line, where the resting caret below takes over. */
+  .persist .char:last-of-type::after {
+    animation-duration: var(--speed);
+  }
+}
+
+/*
+ * The resting caret, only on the final line. Two nested elements: the outer one
+ * controls how long the caret exists, the inner one blinks. Nested opacity
+ * multiplies, so neither animation has to fight the other for the property.
+ */
+.caretWindow {
+  display: inline-block;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .caretWindow {
+    /* forwards only: before `--rest-start` the base opacity of 0 applies. */
+    animation: caret-rest var(--rest-dur) linear var(--rest-start) forwards;
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.82em;
+  margin-left: 0.08em;
+  vertical-align: baseline;
+  background: var(--accent);
+  translate: 0 0.06em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .caret {
+    animation: blink 1.05s steps(1, end) infinite;
+  }
+}
+
+@keyframes char-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Visible for one character interval, then handed to the next character. */
+@keyframes caret-step {
+  0%,
+  99.9% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Sits blinking at the end of the tagline, then gone for good. */
+@keyframes caret-rest {
+  0%,
+  99.9% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}

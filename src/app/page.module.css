@@ -1,0 +1,37 @@
+.hero {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.name {
+  font-size: var(--step-4);
+  margin-block: var(--space-2xs) 0;
+}
+
+.role {
+  color: var(--accent);
+  font-size: var(--step-2);
+  font-weight: 500;
+  margin-top: var(--space-3xs);
+}
+
+.tagline {
+  color: var(--text-muted);
+  max-width: var(--measure);
+  margin-top: var(--space-m);
+  font-size: var(--step-1);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-l);
+}
+
+.aboutTeaser {
+  max-width: var(--measure);
+}
+
+.aboutTeaser > * + * {
+  margin-top: var(--space-s);
+}

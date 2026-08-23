@@ -1,0 +1,46 @@
+.grid {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Make every card fill its row so cards line up regardless of copy length. */
+.grid > li {
+  display: flex;
+}
+
+.grid > li > * {
+  flex: 1;
+}
+
+/* Each card rides its own scroll timeline; the per-index range offset makes
+   cards in the same row land in sequence rather than together. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .grid > li {
+      animation: card-rise 1s linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry calc(60% + var(--i, 0) * 14%);
+    }
+  }
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

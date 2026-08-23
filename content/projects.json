@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "tristo-tactics",
+    "title": "Tristo Tactics",
+    "tagline": "A turn-based tactics RPG built solo in Godot 4 — you fight the same war twice.",
+    "year": "2024—present",
+    "status": "in progress",
+    "role": "Solo — design, engineering, writing",
+    "featured": true,
+    "tech": ["Godot 4.6", "GDScript", "Custom tooling", "Python"],
+    "links": { "repo": "https://github.com/tristo999/TristoTactics" },
+    "summary": "A tactics RPG whose central structure is repetition: the campaign is fought once under a lie, then again from the other side, with scenes deliberately built to collide across both halves.",
+    "sections": [
+      {
+        "heading": "The idea",
+        "body": [
+          "Most tactics RPGs tell a story between battles. This one puts the story in the structure: a set of scenes are authored to occur twice — once in Act 1 believing one version of events, once in Act 2 knowing the truth — so the second encounter reinterprets the first rather than continuing from it.",
+          "That constraint drives the engineering. Scenes have to be replayable with different framing, dialogue has to branch on knowledge state rather than on player choice alone, and the level scripting has to express 'when this, then that' without hardcoding either half of the pair."
+        ]
+      },
+      {
+        "heading": "Engineering",
+        "body": [
+          "Built on Godot 4.6 with a deliberately modular structure: nine autoload singletons handle cross-cutting concerns (events, terrain, audio, persistence, combo resolution) while battle logic lives behind a state machine rather than in scene scripts.",
+          "Levels are authored as plain-text ASCII maps parsed at runtime, so map iteration is a text edit instead of a scene edit. A declarative trigger engine expresses scripted beats as WHEN/THEN rules, which keeps cutscene logic out of the combat code.",
+          "Verification runs headless: dedicated self-test scenes exercise the trigger engine, cinematic effects, combat animation, and combo reactions against the real engine binary in CI-style runs, which catches regressions that are invisible from the editor."
+        ]
+      },
+      {
+        "heading": "What I'd do differently",
+        "body": [
+          "TODO: the honest one. What you got wrong, what you'd rebuild, what the structure cost you."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "this-site",
+    "title": "This Site",
+    "tagline": "A 2020 Gatsby portfolio that shipped empty, rebuilt five years later.",
+    "year": "2020, rebuilt 2026",
+    "status": "shipped",
+    "role": "Solo",
+    "featured": false,
+    "tech": ["Next.js", "TypeScript", "GitHub Actions"],
+    "links": { "repo": "https://github.com/tristo999/TristoWebsite" },
+    "summary": "The original version went live with a working animated nav, five scroll sections, and no content in any of them. Worth keeping honest about.",
+    "sections": [
+      {
+        "heading": "The first attempt",
+        "body": [
+          "Built as a junior in 2020 on Gatsby 2. Eighteen commits over seven months, every one of them chrome: nav bar, animated nav bar, nav shadowing, custom fonts, a loading screen. Not one of them was content.",
+          "It deployed in February 2021 with the placeholder line \"I suck at websites :(\" under my name, and stayed that way for five weeks. The final commit before launch commented out all four content sections, disabled the loading screen I'd just spent two months building, and replaced the joke with \"Software Engineer\". It shipped by deletion."
+        ]
+      },
+      {
+        "heading": "The rebuild",
+        "body": [
+          "Rewritten on Next.js with static export. The rule this time: content lives in validated JSON behind a typed loader, completely decoupled from framework code, so the writing is portable and the framework is a replaceable part.",
+          "The 2020 palette survives. Almost nothing else does."
+        ]
+      }
+    ]
+  }
+]
