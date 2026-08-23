@@ -1,0 +1,14 @@
+.page {
+  /* Give the page some room so a two-line 404 isn't crushed under the header. */
+  padding-block: var(--space-2xl) var(--space-3xl);
+}
+
+.title {
+  font-size: var(--step-3);
+  margin-top: var(--space-2xs);
+  margin-bottom: var(--space-s);
+}
+
+.action {
+  margin-top: var(--space-l);
+}
