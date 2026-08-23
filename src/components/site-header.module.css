@@ -19,9 +19,20 @@
   font-family: var(--font-geek), var(--font-mono);
   font-size: 1.6rem;
   line-height: 1;
-  padding-top: 0.12em;
+  /*
+   * The Geek face has no descender on "T" and its ink sits high in the em box,
+   * so centring the *line* box leaves the glyph visibly low. This nudges the
+   * ink box onto the optical centre instead. Measured against the bundled
+   * font, expressed in em so it holds at any size.
+   */
   text-decoration: none;
   transition: background var(--transition);
+}
+
+.glyph {
+  display: block;
+  /* Moves the letter only — a transform on .mark would shift the badge too. */
+  transform: translateY(-0.0665em);
 }
 
 .mark:hover {

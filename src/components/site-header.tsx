@@ -16,7 +16,9 @@ export function SiteHeader() {
     <ScrollHide>
       <div className={`container ${styles.inner}`}>
         <Link className={styles.mark} href="/" aria-label={`${site.name} — home`}>
-          T
+          <span className={styles.glyph} aria-hidden="true">
+            T
+          </span>
         </Link>
 
         <nav className={styles.nav} aria-label="Main">
