@@ -10,5 +10,11 @@
       "label": "GitHub",
       "href": "https://github.com/tristo999"
     }
+  ],
+  "about": [
+    "TODO: who you are and what you build. Two or three sentences, plain.",
+    "TODO: how you got here — the path, honestly told.",
+    "TODO: what you care about in the work. What you're good at, what you're still bad at.",
+    "TODO: something human. What you do when you're not doing this."
   ]
 }

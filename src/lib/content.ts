@@ -29,6 +29,7 @@ const siteSchema = z.object({
   /** null until a PDF exists — the link hides itself rather than 404ing. */
   resume: z.string().min(1).nullable(),
   socials: z.array(socialSchema),
+  about: z.array(z.string().min(1)),
 })
 
 const experienceSchema = z.object({
@@ -111,18 +112,58 @@ for (const project of projects) {
   seen.add(project.slug)
 }
 
-export const featuredProjects = projects.filter((p) => p.featured)
+/* -------------------------------------------------------------------------
+ * Sanitisation
+ *
+ * Unwritten content must be impossible to publish. Anything still marked TODO
+ * is treated as absent here, and the UI omits the element rather than printing
+ * a placeholder. The 2020 site shipped "I suck at websites :(" to production
+ * for five weeks; this makes the equivalent structurally impossible.
+ * ---------------------------------------------------------------------- */
+
+const isWritten = (value: string): boolean => !value.includes("TODO")
+
+const written = (value: string): string | null => (isWritten(value) ? value : null)
+
+const writtenList = (values: string[]): string[] => values.filter(isWritten)
+
+/** Site fields that are allowed to be missing render as `null`. */
+export const siteText = {
+  tagline: written(site.tagline),
+  location: written(site.location),
+  about: writtenList(site.about),
+}
+
+/** A role is publishable only once its company and title are real. */
+export const publishedExperience: Experience[] = experience
+  .filter((item) => isWritten(item.company) && isWritten(item.role))
+  .map((item) => ({
+    ...item,
+    summary: isWritten(item.summary) ? item.summary : "",
+    highlights: writtenList(item.highlights),
+    tech: writtenList(item.tech),
+  }))
+
+/** Write-up sections with nothing written in them are dropped. */
+export const publishedProjects: Project[] = projects.map((project) => ({
+  ...project,
+  sections: project.sections
+    .map((section) => ({ ...section, body: writtenList(section.body) }))
+    .filter((section) => section.body.length > 0),
+}))
+
+export const featuredProjects = publishedProjects.filter((p) => p.featured)
 
 /**
  * What the home page shows: featured first, then the rest, capped. Keeps the
  * section populated even before anything is flagged featured.
  */
-export const selectedProjects = [...projects]
+export const selectedProjects = [...publishedProjects]
   .sort((a, b) => Number(b.featured) - Number(a.featured))
   .slice(0, 4)
 
 export function getProject(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug)
+  return publishedProjects.find((p) => p.slug === slug)
 }
 
 /** "2023-01" -> "Jan 2023". `null` means present. */

@@ -4,7 +4,7 @@ import localFont from "next/font/local"
 
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
-import { site } from "@/lib/content"
+import { site, siteText } from "@/lib/content"
 
 import "./globals.css"
 
@@ -27,18 +27,21 @@ const geek = localFont({
   display: "swap",
 })
 
+/** Never let an unwritten tagline reach a meta tag. */
+const description = siteText.tagline ?? `${site.name} — ${site.role}`
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.tristanfitzwater.com"),
   title: {
     default: `${site.name} — ${site.role}`,
     template: `%s — ${site.name}`,
   },
-  description: site.tagline,
+  description,
   openGraph: {
     type: "website",
     siteName: site.name,
     title: `${site.name} — ${site.role}`,
-    description: site.tagline,
+    description,
     url: "/",
   },
   twitter: { card: "summary_large_image" },

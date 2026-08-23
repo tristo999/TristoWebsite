@@ -1,12 +1,14 @@
-import { site } from "./content"
+import { site, siteText } from "./content"
 
 /**
  * Intro timing, computed from the actual content at build time.
  *
- * All three titles type character by character, one after another, and only
- * then does the rest of the page arrive. Because the durations derive from real
- * string lengths, editing content/site.json retimes the whole sequence — a
- * longer tagline simply takes longer to type, and everything downstream shifts.
+ * The hero titles type out one after another, and only then does the rest of
+ * the page arrive. Durations derive from real string lengths, so editing
+ * content/site.json retimes the whole sequence.
+ *
+ * A title that hasn't been written yet is simply absent — the sequence closes
+ * up around it and the resting caret moves to whichever line ends up last.
  */
 
 /** Milliseconds per character. Longer lines type faster so they don't drag. */
@@ -51,16 +53,15 @@ function schedule() {
 
   const name = line(site.name, SPEED.name)
   const role = line(site.role, SPEED.role)
-  const tagline = line(site.tagline, SPEED.tagline)
+  const tagline = siteText.tagline ? line(siteText.tagline, SPEED.tagline) : null
 
-  // `cursor` already includes a trailing GAP after the last line.
-  const titlesEnd = tagline.start + tagline.duration
+  const last = tagline ?? role
+  const titlesEnd = last.start + last.duration
   const end = cursor + HOLD
 
   /**
-   * After the last line is typed the caret stops moving and sits blinking at
-   * the end of the tagline, then disappears once the page has finished
-   * bouncing in.
+   * Once the last line is typed the caret stops moving, sits blinking at the
+   * end of it, then disappears after the page has finished bouncing in.
    */
   const caretRest = {
     start: titlesEnd,

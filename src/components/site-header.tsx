@@ -1,14 +1,15 @@
 import Link from "next/link"
 
-import { site } from "@/lib/content"
+import { site, siteText } from "@/lib/content"
 
 import { ScrollHide } from "./scroll-hide"
 import styles from "./site-header.module.css"
 
+/** About only appears once something is written there. */
 const links = [
-  { href: "/about", label: "About" },
+  ...(siteText.about.length > 0 ? [{ href: "/about", label: "About" }] : []),
   { href: "/projects", label: "Projects" },
-] as const
+]
 
 export function SiteHeader() {
   return (

@@ -7,8 +7,15 @@
     "status": "in progress",
     "role": "Solo — design, engineering, writing",
     "featured": true,
-    "tech": ["Godot 4.6", "GDScript", "Custom tooling", "Python"],
-    "links": { "repo": "https://github.com/tristo999/TristoTactics" },
+    "tech": [
+      "Godot 4.6",
+      "GDScript",
+      "Custom tooling",
+      "Python"
+    ],
+    "links": {
+      "repo": "https://github.com/tristo999/TristoTactics"
+    },
     "summary": "A tactics RPG whose central structure is repetition: the campaign is fought once under a lie, then again from the other side, with scenes deliberately built to collide across both halves.",
     "sections": [
       {
@@ -30,34 +37,6 @@
         "heading": "What I'd do differently",
         "body": [
           "TODO: the honest one. What you got wrong, what you'd rebuild, what the structure cost you."
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "this-site",
-    "title": "This Site",
-    "tagline": "A 2020 Gatsby portfolio that shipped empty, rebuilt five years later.",
-    "year": "2020, rebuilt 2026",
-    "status": "shipped",
-    "role": "Solo",
-    "featured": false,
-    "tech": ["Next.js", "TypeScript", "GitHub Actions"],
-    "links": { "repo": "https://github.com/tristo999/TristoWebsite" },
-    "summary": "The original version went live with a working animated nav, five scroll sections, and no content in any of them. Worth keeping honest about.",
-    "sections": [
-      {
-        "heading": "The first attempt",
-        "body": [
-          "Built as a junior in 2020 on Gatsby 2. Eighteen commits over seven months, every one of them chrome: nav bar, animated nav bar, nav shadowing, custom fonts, a loading screen. Not one of them was content.",
-          "It deployed in February 2021 with the placeholder line \"I suck at websites :(\" under my name, and stayed that way for five weeks. The final commit before launch commented out all four content sections, disabled the loading screen I'd just spent two months building, and replaced the joke with \"Software Engineer\". It shipped by deletion."
-        ]
-      },
-      {
-        "heading": "The rebuild",
-        "body": [
-          "Rewritten on Next.js with static export. The rule this time: content lives in validated JSON behind a typed loader, completely decoupled from framework code, so the writing is portable and the framework is a replaceable part.",
-          "The 2020 palette survives. Almost nothing else does."
         ]
       }
     ]
